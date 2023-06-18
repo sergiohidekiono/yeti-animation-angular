@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrimeNgModule } from './shared/primeng.module';
-import { NgxHowlerService } from 'ngx-howler';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +21,6 @@ import { NgxHowlerService } from 'ngx-howler';
     PrimeNgModule
   ],
   providers: [
-    NgxHowlerService,
     {
       provide: RIVE_FOLDER,
       useValue: 'assets/animations',

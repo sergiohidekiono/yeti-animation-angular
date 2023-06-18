@@ -26,7 +26,6 @@
     "@rive-app/canvas-advanced": "^1.1.6",
     "chart.js": "^4.3.0",
     "ng-rive": "^0.2.5",
-    "ngx-howler": "^11.0.0",
     "primeflex": "^3.3.1",
     "primeicons": "^6.0.1",
     "primeng": "^15.4.1",
