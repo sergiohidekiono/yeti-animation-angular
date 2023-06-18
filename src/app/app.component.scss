@@ -1,14 +1,73 @@
 .custom-button {
   width: 100%;
   height: 60px;
-  background-color: aliceblue!important;
-  color: #3f8ec7!important;
+  background-color: aliceblue !important;
+  color: #3f8ec7 !important;
 }
 
 .custom-button:hover {
   width: 100%;
   height: 60px;
-  background: #d0e6f9!important;
-  color: #3f8ec7!important;
+  background: #d0e6f9 !important;
+  color: #3f8ec7 !important;
 }
 
+.custom-canvas {
+  border-radius: 50%;
+  border: 10px white;
+  border-style: solid double;
+}
+
+.p-button {
+  background: #074585;
+  border-color: #074585;
+  color: white;
+}
+
+.p-button:hover {
+  background: #06396fdb;
+  border-color: #06396fdb;
+  color: white;
+}
+
+.wrap-form {
+  background: linear-gradient(359deg, #f3fcff, #000e43);
+  height: 100vh;
+}
+
+.ui-inputtext.ng-dirty.ng-invalid,
+.ui-inputtext.ng-touched.ng-invalid {
+  border: 1px solid rgb(73, 110, 235) !important;
+  background: rgba(0, 38, 255, 0.35);
+  box-shadow: 0 0 5px 1px rgba(1, 4, 138, 0.2) inset !important;
+}
+
+.p-inputtext.ng-dirty.ng-invalid {
+  border-color: #bd5b4c;
+  color: #af220c;
+}
+
+.p-float-label>.ng-invalid.ng-dirty+label {
+  color: #af220c;
+}
+
+label {
+  color: #1D3B75;
+  font-weight: 500;
+}
+
+// label {
+//   color: transparent;
+//   background-image: linear-gradient(to right, #98c7ed, #4091d5, #4e93cd,#1360a1, #065393);
+//   -webkit-background-clip: text;
+//   background-size: 300%;
+//   background-position: -100%;
+//   font-weight: bold;
+//   animation: animatedText 6s ease-out 1s infinite reverse;
+// }
+
+@keyframes animatedText {
+  to {
+    background-position: 100%;
+  }
+}

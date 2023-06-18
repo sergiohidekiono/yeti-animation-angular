@@ -1,47 +1,45 @@
-<div
-  style="height: 100%; display: flex; justify-content: center; align-items: center; background: linear-gradient(359deg, #939393, #a9b4d1);">
+<div class="wrap-form">
   <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
-    <canvas #eyeCanvas riv="yeti" width="500" height="500" style="border-radius: 50%; margin-bottom: 30px;">
-      <riv-state-machine name="animation" play>
-        <riv-input name="hands_up" [value]="isHandsUp"></riv-input>
-        <riv-input name="look" [value]="isLooking"></riv-input>
-        <riv-input name="looking_angle" [value]="lookAngle"></riv-input>
-        <riv-input #triggerSuccess="rivInput" name="success"></riv-input>
-        <riv-input #triggerSuccessVariant="rivInput" name="success_variant"></riv-input>
-        <riv-input #triggerFailOnce="rivInput" name="fail_once"></riv-input>
-        <riv-input #triggerFailTwice="rivInput" name="fail_twice"></riv-input>
-        <riv-input #triggerFailThird="rivInput" name="fail_third"></riv-input>
-      </riv-state-machine>
-    </canvas>
-    <div>
-      <mat-form-field class="example-full-width" style="width: 100%;">
-        <mat-label>Usuário</mat-label>
-        <input #meuInput (input)="verificarEspacoOcupado()" type="email" matInput formControlName="email"
-          placeholder="Ex. exemplo@exemplo.com" (focus)="focusEmail()" (blur)="nonfocusEmail()">
-        <mat-error *ngIf="formulario.hasError('email') && !formulario.hasError('required')">
-          Informe um email válido
-        </mat-error>
-        <mat-error *ngIf="formulario.hasError('required')">
-          Email é <strong>obrigatório</strong>
-        </mat-error>
-      </mat-form-field>
+    <div style="max-width: 400px; margin: 0 auto; padding: 50px;">
+      <div class="flex flex-column" style="margin-bottom: 30px;">
+        <canvas #eyeCanvas class="custom-canvas" width="500" height="500" riv="yeti" fit="contain">
+          <riv-state-machine name="animation" play>
+            <riv-input name="hands_up" [value]="isHandsUp"></riv-input>
+            <riv-input name="look" [value]="isLooking"></riv-input>
+            <riv-input name="looking_angle" [value]="lookAngle"></riv-input>
+            <riv-input #triggerSuccess="rivInput" name="success"></riv-input>
+            <riv-input #triggerSuccessVariant="rivInput" name="success_variant"></riv-input>
+            <riv-input #triggerFailOnce="rivInput" name="fail_once"></riv-input>
+            <riv-input #triggerFailTwice="rivInput" name="fail_twice"></riv-input>
+            <riv-input #triggerFailThird="rivInput" name="fail_third"></riv-input>
+          </riv-state-machine>
+        </canvas>
+      </div>
+
+      <div>
+        <div class="p-float-label flex flex-column">
+          <input #meuInput pInputText (input)="verificarEspacoOcupado()" type="email"
+            placeholder="Ex: exemplo@email.com" class="p-inputtext-sm" formControlName="email" (focus)="focusEmail()"
+            (blur)="nonfocusEmail()" />
+          <label htmlFor="username">Email</label>
+          <small *ngIf="formulario.hasError('email') && !formulario.hasError('required')">Informe um email
+            válido</small>
+          <small *ngIf="formulario.hasError('required')"> Email é <strong>obrigatório</strong></small>
+        </div>
+        <div class="mt-5 p-float-label flex flex-column">
+          <input #meuInput pInputText (input)="verificarEspacoOcupado()" type="password" placeholder="Com até 6 dígitos"
+            class="p-inputtext-sm" formControlName="password" (focus)="focusPassword()" (blur)="nonfocusPassword()" />
+          <label htmlFor="username">Senha</label>
+          <small *ngIf="formulario.hasError('password') && !formulario.hasError('required')">Informe uma senha
+            válida</small>
+          <small *ngIf="formulario.hasError('required')"> Senha é <strong>obrigatório</strong></small>
+        </div>
+      </div>
+      <br>
+      <br>
+      <button pButton pRipple label="Logar" class="w-12 p-button" type="submit"></button>
     </div>
-    <br>
-    <div>
-      <mat-form-field class="example-full-width" style="width: 100%;">
-        <mat-label>Senha</mat-label>
-        <input type="password" matInput formControlName="password" placeholder="Com até 6 dígitos"
-          (focus)="focusPassword()" (blur)="nonfocusPassword()">
-        <mat-error *ngIf="formulario.hasError('email') && !formulario.hasError('required')">
-          Informe uma senha válida
-        </mat-error>
-        <mat-error *ngIf="formulario.hasError('required')">
-          Senha é <strong>obrigatório</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <br>
-    <button class="custom-button mat-elevation-z2" mat-flat-button color="primary"
-      type="submit">Logar</button>
   </form>
 </div>
+
+<p-toast></p-toast>

@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit {
   countError = 0;
   countSuccess = 0;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private messageService: MessageService) { }
+
   @ViewChild('triggerSuccess', { static: false }) triggerSuccess: any;
   @ViewChild('triggerSuccessVariant', { static: false })
   triggerSuccessVariant: any;
@@ -29,15 +31,17 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
     this.state = 'idle';
     this.isSuccess = 'checked';
   }
+
   enviarFormulario() {
     this.countError += 1;
     if (this.formulario.invalid) {
+      this.messageService.add({ severity: 'warn', summary: '', detail: 'E-mail ou Senha incorreto, tente novamente!' });
       if (this.countError == 1) {
         this.triggerFailOnce.fire();
       } else if (this.countError == 2) {
@@ -47,6 +51,7 @@ export class AppComponent implements OnInit {
       }
       return;
     } else {
+      this.messageService.add({ severity: 'success', summary: '', detail: 'Login efetuado com sucesso!' });
       this.countSuccess += 1;
       if (this.countSuccess == 1) {
         this.triggerSuccess.fire();
