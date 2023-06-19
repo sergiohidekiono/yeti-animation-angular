@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrimeNgModule } from './shared/primeng.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,8 @@ import { PrimeNgModule } from './shared/primeng.module';
     ReactiveFormsModule,
     RiveModule,
     BrowserAnimationsModule,
-    PrimeNgModule
+    PrimeNgModule,
+    SharedModule
   ],
   providers: [
     {
