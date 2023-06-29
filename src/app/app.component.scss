@@ -33,6 +33,9 @@
 .wrap-form {
   background: linear-gradient(359deg, #f1fcff, #add2db, #6dc4d9 37%, #5277ff 100%);
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ui-inputtext.ng-dirty.ng-invalid,
